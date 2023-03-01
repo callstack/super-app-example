@@ -1,0 +1,13 @@
+{
+  "name": "super-app-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jakub Romanczyk <jakub.romanczyk@callstack.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/host-app",
+    "packages/mini-app"
+  ],
+  "packageManager": "yarn@3.4.1"
+}
