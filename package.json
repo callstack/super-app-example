@@ -9,5 +9,18 @@
     "packages/host-app",
     "packages/mini-app"
   ],
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "bootstrap": "yarn && yarn workspaces foreach run bootstrap",
+    "start": "concurrently -P 'yarn:start:*(!standalone) {1}'",
+    "start:host-app": "yarn workspace HostApp run start",
+    "start:mini-app": "yarn workspace MiniApp run start",
+    "run:host-app:ios": "yarn workspace HostApp run ios",
+    "run:host-app:android": "yarn workspace HostApp run android",
+    "run:mini-app:ios": "yarn workspace MiniApp run ios",
+    "run:mini-app:android": "yarn workspace MiniApp run android"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
