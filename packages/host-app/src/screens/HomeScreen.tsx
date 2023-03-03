@@ -16,6 +16,13 @@ const HomeScreen = () => {
           navigation.navigate('Detail');
         }}
       />
+      <Button
+        color="rgba(127, 103, 190, 1)"
+        title="Navigate to MiniApp"
+        onPress={() => {
+          navigation.navigate('MiniApp');
+        }}
+      />
     </View>
   );
 };

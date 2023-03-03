@@ -155,6 +155,7 @@ export default env => {
             /node_modules(.*[/\\])+@react-navigation/,
             /node_modules(.*[/\\])+@react-native-community/,
             /node_modules(.*[/\\])+@expo/,
+            /node_modules(.*[/\\])+react-freeze/,
             /node_modules(.*[/\\])+pretty-format/,
             /node_modules(.*[/\\])+metro/,
             /node_modules(.*[/\\])+abort-controller/,
@@ -233,6 +234,9 @@ export default env => {
       }),
       new Repack.plugins.ModuleFederationPlugin({
         name: 'MiniApp',
+        exposes: {
+          './MiniAppNavigator': './src/navigation/MainNavigator',
+        },
         shared: {
           react: {
             singleton: true,
