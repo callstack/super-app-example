@@ -7,6 +7,8 @@ There are 2 branches in this repository:
 - `main` - starting point for the tutorial
 - `finished` - the end result that you should achieve after following the steps in the tutorial
 
+Learn more about Super Apps here: [https://www.callstack.com/super-app-development](https://www.callstack.com/super-app-development?utm_campaign=super_apps&utm_source=github&utm_content=super_apps_example).
+
 ## Getting Started
 
 Follow these steps to set up the project on your local machine.
