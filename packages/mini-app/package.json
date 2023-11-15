@@ -12,6 +12,7 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native webpack-start --port 9000",
+    "start:standalone": "STANDALONE=1 react-native webpack-start",
     "bundle": "yarn bundle:android && yarn bundle:ios",
     "bundle:android": "react-native webpack-bundle --dev false --platform android --entry-file index.js",
     "bundle:ios": "react-native webpack-bundle --dev false --platform ios --entry-file index.js",
