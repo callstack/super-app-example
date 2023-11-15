@@ -5,11 +5,19 @@ import {name as appName} from './app.json';
 import {ScriptManager, Federated} from '@callstack/repack/client';
 
 ScriptManager.shared.addResolver(async (scriptId, caller) => {
-  const resolveURL = Federated.createURLResolver({
-    containers: {
+  let containers;
+
+  if (__DEV__) {
+    containers = {
       MiniApp: 'http://localhost:9000/[name][ext]',
-    },
-  });
+    };
+  } else {
+    containers = {
+      MiniApp: `http://localhost:9000/${Platform.OS}/remotes/[name][ext]`,
+    };
+  }
+
+  const resolveURL = Federated.createURLResolver({containers});
 
   const url = resolveURL(scriptId, caller);
   if (url) {
