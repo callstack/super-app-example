@@ -1,11 +1,26 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageRequireSource,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
-const data = Array(10)
+const pics = [
+  require('../../../../assets/pic_1.jpg'),
+  require('../../../../assets/pic_2.jpg'),
+  require('../../../../assets/pic_3.jpg'),
+  require('../../../../assets/pic_4.jpg'),
+  require('../../../../assets/pic_5.jpg'),
+];
+
+const data = Array(5)
   .fill('')
-  .map((_, i) => `Picture ${i}`);
+  .map((_, i) => ({title: `Picture ${i}`, source: pics[i]}));
 
-const Row = ({title}: {title: string}) => (
+const Row = ({title, source}: {title: string; source: ImageRequireSource}) => (
   <View style={styles.row}>
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
@@ -13,16 +28,16 @@ const Row = ({title}: {title: string}) => (
         The quick brown fox jumps over the lazy dog
       </Text>
     </View>
-    <Image source={{uri: 'https://picsum.photos/70?a'}} style={styles.image} />
+    <Image source={source} style={styles.image} />
   </View>
 );
 
 const GalleryScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      {data.map(title => (
+      {data.map(({title, source}) => (
         <React.Fragment key={title}>
-          <Row title={title} />
+          <Row title={title} source={source} />
           <View style={styles.separator} />
         </React.Fragment>
       ))}
