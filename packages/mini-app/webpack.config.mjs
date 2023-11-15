@@ -196,6 +196,7 @@ export default env => {
          */
         {
           test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS),
+          exclude: [path.resolve(dirname, '../../assets')],
           use: {
             loader: '@callstack/repack/assets-loader',
             options: {
@@ -207,6 +208,19 @@ export default env => {
                * By default all images are scalable.
                */
               scalableAssetExtensions: Repack.SCALABLE_ASSETS,
+            },
+          },
+        },
+        {
+          test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS),
+          include: [path.resolve(dirname, '../../assets')],
+          use: {
+            loader: '@callstack/repack/assets-loader',
+            options: {
+              platform,
+              devServerEnabled: Boolean(devServer),
+              scalableAssetExtensions: Repack.SCALABLE_ASSETS,
+              inline: true,
             },
           },
         },
