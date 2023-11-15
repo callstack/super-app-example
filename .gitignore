@@ -7,3 +7,7 @@ node_modules/**/*
 
 **/.yalc
 **/yalc.lock
+
+jwtRS256.key
+jwtRS256.key.pub
+

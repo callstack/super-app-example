@@ -26,6 +26,7 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
       query: {
         platform: Platform.OS,
       },
+      verifyScriptSignature: __DEV__ ? 'off' : 'strict',
     };
   }
 });

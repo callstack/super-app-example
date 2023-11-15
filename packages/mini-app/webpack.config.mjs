@@ -276,6 +276,11 @@ export default env => {
         test: /\.(js)?bundle$/,
         exclude: /index.bundle$/,
       }),
+      new Repack.plugins.CodeSigningPlugin({
+        enabled: mode === 'production',
+        privateKeyPath: path.join('..', '..', 'jwtRS256.key'),
+        outputPath: path.join('build', 'outputs', platform, 'remotes'),
+      }),
     ],
   };
 };
