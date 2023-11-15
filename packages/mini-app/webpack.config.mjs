@@ -220,7 +220,10 @@ export default env => {
               platform,
               devServerEnabled: Boolean(devServer),
               scalableAssetExtensions: Repack.SCALABLE_ASSETS,
-              inline: true,
+              remote: {
+                enabled: mode === 'production',
+                publicPath: `http://localhost:9000/${platform}/remotes/remote-assets/`,
+              },
             },
           },
         },
@@ -245,6 +248,12 @@ export default env => {
           bundleFilename,
           sourceMapFilename,
           assetsPath,
+          auxiliaryAssetsPath: path.join(
+            dirname,
+            'build/outputs',
+            platform,
+            'remotes',
+          ),
         },
       }),
       new Repack.plugins.ModuleFederationPlugin({
